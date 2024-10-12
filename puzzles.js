@@ -1,3 +1,6 @@
+const backgroundColor = localStorage.getItem("background_color");
+if (backgroundColor) document.body.style.backgroundColor = backgroundColor;
+
 document.addEventListener('click', (event) => {
     const target = event.target;
     switch (target.id) {

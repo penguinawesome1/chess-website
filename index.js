@@ -38,6 +38,7 @@ const profilePicture2 = document.getElementById("profile_picture2");
 const profilePicture1New = localStorage.getItem("profile_picture1");
 const profilePicture2New = localStorage.getItem("profile_picture2");
 if (profilePicture1New) {
+    console.log("ONME");
     const image1 = document.createElement('img');
     image1.src = profilePicture1New;
     image1.style.width = "100%";
@@ -47,6 +48,7 @@ if (profilePicture1New) {
     profilePicture1.appendChild(image1);
 }
 if (profilePicture2New) {
+    console.log("TWWO");
     const image2 = document.createElement('img');
     image2.src = profilePicture2New;
     image2.style.width = "100%";

@@ -38,7 +38,7 @@ document.addEventListener('click', (event) => {
             const username2 = prompt("What is your new username?");
             localStorage.setItem("username2", username2);
             break;
-        case "change_profile_picture":
+        case "change_profile_picture_player1":
             const link1 = prompt("What is the new link of image for your profile picture?");
             localStorage.setItem("profile_picture1", link1);
             break;

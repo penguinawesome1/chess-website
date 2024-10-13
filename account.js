@@ -29,24 +29,38 @@ document.addEventListener("DOMContentLoaded", () => {
     allAnimatedElements.forEach((element) => observer.observe(element));
 }); 
 
-document.addEventListener('click', (event) => {
+document.addEventListener('mousedown', (event) => {
     const target = event.target;
     switch (target.id) {
         case "change_username_player1":
             const username1 = prompt("What is your new username?");
-            localStorage.setItem("username1", username1);
+            if (username1) localStorage.setItem("username1", username1);
             break;
         case "change_username_player2":
             const username2 = prompt("What is your new username?");
-            localStorage.setItem("username2", username2);
+            if (username2) localStorage.setItem("username2", username2);
             break;
         case "change_profile_picture_player1":
-            const link1 = prompt("What is the new link of image for your profile picture?");
-            localStorage.setItem("profile_picture1", link1);
+            const imageInput1 = document.getElementById('image-input1');
+            const file1 = imageInput1.files[0];
+            if (file1) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    localStorage.setItem("profile_picture1", event.target.result);
+                };
+                reader.readAsDataURL(file1);
+            }
             break;
         case "change_profile_picture_player2":
-            const link2 = prompt("What is the new link of image for your profile picture?");
-            localStorage.setItem("profile_picture2", link2);
+            const imageInput2 = document.getElementById('image-input2');
+            const file2 = imageInput2.files[0];
+            if (file2) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    localStorage.setItem("profile_picture2", event.target.result);
+                };
+                reader.readAsDataURL(file2);
+            }
             break;
         case "color_mode":            
             ++currentColorIndex;

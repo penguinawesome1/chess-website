@@ -1,5 +1,8 @@
 const backgroundColor = localStorage.getItem("background_color");
-if (backgroundColor) document.body.classList.add(backgroundColor);
+if (backgroundColor) {
+    document.body.classList.remove("light-mode", "dark-mode", "midnight-mode");
+    document.body.classList.add(backgroundColor);
+}
 
 const backgroundColors = ["light-mode", "dark-mode", "midnight-mode"];
 let currentColorIndex = 1;

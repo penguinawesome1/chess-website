@@ -1,3 +1,9 @@
+const backgroundColor = localStorage.getItem("background_color");
+if (backgroundColor) {
+    document.body.classList.remove("light-mode", "dark-mode", "midnight-mode");
+    document.body.classList.add(backgroundColor);
+}
+
 function updateHistory(pieceType, move, halfTurns) {
     console.log(pieceType);
 
@@ -22,9 +28,6 @@ function updateHistory(pieceType, move, halfTurns) {
     historyContainer.appendChild(box);
     historyContainer.scrollTop = historyContainer.scrollHeight;
 }
-
-const backgroundColor = localStorage.getItem("background_color");
-if (backgroundColor) document.body.classList.add(backgroundColor);
 
 const username1 = document.getElementById("username1");
 const username2 = document.getElementById("username2");

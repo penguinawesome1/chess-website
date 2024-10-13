@@ -1,31 +1,30 @@
 const backgroundColor = localStorage.getItem("background_color");
-if (backgroundColor) document.body.style.backgroundColor = backgroundColor;
+if (backgroundColor) document.body.classList.add(backgroundColor);
 
-function setBtnColorTxt() {
-    const backgroundColor = localStorage.getItem("background_color");
-    const backgroundColorBtn = document.getElementById("color_mode");
-    switch (backgroundColor) {
-        case "white": backgroundColorBtn.textContent = "White"; break;
-        case "#282828": backgroundColorBtn.textContent = "Gray"; break;
-        case "black": backgroundColorBtn.textContent = "Black"; break;
-        default: break;
-    }
-}
+const backgroundColors = ["light-mode", "dark-mode", "midnight-mode"];
+let currentColorIndex = 1;
 
-setBtnColorTxt();
+const btnBackgroundColor = document.getElementById("color_mode");
+const currentBg = localStorage.getItem("background_color");
+if (currentBg) btnBackgroundColor.textContent = `Background color: ${currentBg.replace("-", " ")}`;
 
-const elements = document.querySelectorAll(".sliding-text");
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = "running";
-        }
+const btnTimerToggle = document.getElementById("timer_toggle");
+const currentToggle = localStorage.getItem("timer_toggle");
+if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                return;
+            }
+            entry.target.classList.remove("in-view");
+        });
     });
-});
-
-elements.forEach((element) => {
-    observer.observe(element);
-});
+    const allAnimatedElements = document.querySelectorAll('.wrapper');
+    allAnimatedElements.forEach((element) => observer.observe(element));
+}); 
 
 document.addEventListener('click', (event) => {
     const target = event.target;
@@ -46,28 +45,34 @@ document.addEventListener('click', (event) => {
             const link2 = prompt("What is the new link of image for your profile picture?");
             localStorage.setItem("profile_picture2", link2);
             break;
-        case "color_mode":
-            switch (target.textContent) {
-                case "White": localStorage.setItem("background_color", "#282828"); break;
-                case "Gray": localStorage.setItem("background_color", "black"); break;
-                case "Black": localStorage.setItem("background_color", "white"); break;
-            }
-            setBtnColorTxt();
-            document.body.style.backgroundColor = localStorage.getItem("background_color");
+        case "color_mode":            
+            ++currentColorIndex;
+            if (currentColorIndex >= backgroundColors.length) currentColorIndex = 0;
+            
+            document.body.classList.remove("light-mode", "dark-mode", "midnight-mode");
+            const color = backgroundColors[currentColorIndex];
+            document.body.classList.add(color);
+            const backgroundColorBtn = document.getElementById("color_mode");
+            backgroundColorBtn.textContent = `Background color: ${color.replace("-", " ")}`;
+            localStorage.setItem("background_color", color);
             break;
         case "timer_toggle":
+            if (localStorage.getItem("timer_toggle") === "off") localStorage.setItem("timer_toggle", "on");
+            else localStorage.setItem("timer_toggle", "off");
+            
+            const btnTimerToggle = document.getElementById("timer_toggle");
+            const currentToggle = localStorage.getItem("timer_toggle");
+            if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
             break;
-        case "color_mode":
-            break;
-        case "timer_toggle":
-            break
         case "reset_preferences":
             const confirmed1 = confirm("Are you sure you want to reset preferences?");
             if (confirmed1) {
                 localStorage.clear();
-                document.body.style.backgroundColor = "#282828";
+                document.body.classList.remove("light-mode", "midnight-mode");
+                document.body.classList.add("dark-mode");
+                
                 const backgroundColorBtn = document.getElementById("color_mode");
-                backgroundColorBtn.textContent = "Gray";
+                backgroundColorBtn.textContent = localStorage.getItem("background_color");
             }
             break;
         case "reset_password":

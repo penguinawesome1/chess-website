@@ -1,19 +1,15 @@
 :root {
     --gray-color: #282828;
-    --btn1-colora: #4299e1;
-    --btn1-colorb: #2b6cb0;
-    --btn2-colora: #3cefff;
-    --btn2-colorb: #2d3058;
-    --btn4-colorc: #F0E68C;
-    --btn4-colord: #DAA520;
 }
 
 body {
-    background-color: var(--gray-color);
-    color: white;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
 }
 
 .dark-mode {
@@ -21,9 +17,9 @@ body {
     color: white;
 }
 
-.light-mode {
-    background-color: white;
-    color: black;
+.midnight-mode {
+    background-color: black;
+    color: white;
 }
 
 .top_bar {
@@ -43,11 +39,11 @@ body {
     outline: 0;
     border: 0;
     cursor: pointer;
-    background-color: var(--btn1-colora);
+    background-color: #4299e1;
     border-radius: 4px;
     padding: 12px 24px;
     font-size: 24px;
-    border-bottom: 4px solid var(--btn1-colorb);
+    border-bottom: 4px solid #2b6cb0;
     font-weight: 700;
     line-height: 26px;
     user-select: none;
@@ -95,7 +91,7 @@ body {
     padding: 20px;
     width: 200px;
     border: none;
-    background-color: var(--btn2-colorb);
+    background-color: #2d3058;
     overflow: hidden;
     transition: color 0.4s ease-in-out;
 }
@@ -109,7 +105,7 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: var(--btn2-colora);
+    background-color: #3cefff;
     transform-origin: center;
     transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
     transition: transform 0.45s ease-in-out;
@@ -135,7 +131,7 @@ body {
     padding: 20px;
     width: 200px;
     border: none;
-    background-color: var(--btn2-colorb);
+    background-color: #2d3058;
     overflow: hidden;
     transition: color 0.4s ease-in-out;
 }
@@ -149,7 +145,7 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: var(--btn2-colora);
+    background-color: #3cefff;
     transform-origin: center;
     transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
     transition: transform 0.45s ease-in-out;
@@ -248,40 +244,6 @@ body {
     margin: 0 30px 0 30px;
 }
 
-.sliding-text {
-    width: 1300px;
-    position: relative;
-    top: 0;
-    left: 0;
-    scroll-snap-align: start;
-    transform: translateX(100%);
-    opacity: 0;
-    background-color: lightgray;
-    padding: 6px;
-    margin: 0;
-    color: black;
-    font-size: 30px;
-    border-radius: 3px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    animation: slide-in-right .4s ease-in-out forwards;
-    animation-delay: calc(var(--order) * 30ms);
-    animation-play-state: paused;
-}
-
-@keyframes slide-in-right {
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.typeb {
-    background-color: gray;
-}
-
 .btn5 {
     background-color: #e1ecf4;
     border-radius: 3px;
@@ -360,11 +322,66 @@ body {
 }
 
 .btn4:hover {
-    background-color: var(--btn4-colorc);
-    border-bottom: 4px solid var(--btn4-colord);
+    background-color: #F0E68C;
+    border-bottom: 4px solid #DAA520;
     transform: translateY(-4px);
 }
 
 .btn4:active {
     transform: translateY(4px);
+}
+
+.keyboard {
+    padding: 0;
+    margin: 60px;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.key {
+    background-color: lightgray;
+    border: 2px solid black;
+    border-bottom: 50px solid brown;
+    border-radius: 12px;
+    height: 80px;
+    width: 600px;
+    margin: -25px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    z-index: var(--order);
+}
+
+.key:hover {
+    transform: translateY(-5px);
+    border: 2px solid black;
+    border-bottom: 50px solid brown;
+}
+
+.key:active {
+    transform: translateY(35px) rotate(-1deg);
+}
+
+.wrapper {
+    animation: slide-in-right .5s ease-in-out forwards;
+    animation-delay: calc(var(--order) * 30ms);
+    scroll-snap-align: start;
+    transform: translateX(220%);
+    opacity: 0.1;
+    animation-play-state: paused;
+}
+
+.in-view {
+    animation-play-state: running;
+}
+
+@keyframes slide-in-right {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

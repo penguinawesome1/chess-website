@@ -24,7 +24,7 @@ function updateHistory(pieceType, move, halfTurns) {
 }
 
 const backgroundColor = localStorage.getItem("background_color");
-if (backgroundColor) document.body.style.backgroundColor = backgroundColor;
+if (backgroundColor) document.body.classList.add(backgroundColor);
 
 const username1 = document.getElementById("username1");
 const username2 = document.getElementById("username2");

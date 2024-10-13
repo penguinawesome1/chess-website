@@ -75,7 +75,7 @@ document.addEventListener('click', (event) => {
                 document.body.classList.add("dark-mode");
                 
                 const btnBackgroundColor = document.getElementById("color_mode");
-                btnBackgroundColor.textContent = "Background color: gray";
+                btnBackgroundColor.textContent = "Background color: dark mode";
 
                 const btnTimerToggle = document.getElementById("timer_toggle");
                 btnTimerToggle.textContent = "Display puzzle timer: on";

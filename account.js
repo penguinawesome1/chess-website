@@ -71,8 +71,13 @@ document.addEventListener('click', (event) => {
                 document.body.classList.remove("light-mode", "midnight-mode");
                 document.body.classList.add("dark-mode");
                 
-                const backgroundColorBtn = document.getElementById("color_mode");
-                backgroundColorBtn.textContent = localStorage.getItem("background_color");
+                const btnBackgroundColor = document.getElementById("color_mode");
+                const currentBg = localStorage.getItem("background_color");
+                if (currentBg) btnBackgroundColor.textContent = `Background color: ${currentBg.replace("-", " ")}`;
+
+                const btnTimerToggle = document.getElementById("timer_toggle");
+                const currentToggle = localStorage.getItem("timer_toggle");
+                if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
             }
             break;
         case "reset_password":

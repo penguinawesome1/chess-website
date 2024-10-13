@@ -75,12 +75,10 @@ document.addEventListener('click', (event) => {
                 document.body.classList.add("dark-mode");
                 
                 const btnBackgroundColor = document.getElementById("color_mode");
-                const currentBg = localStorage.getItem("background_color");
-                if (currentBg) btnBackgroundColor.textContent = `Background color: ${currentBg.replace("-", " ")}`;
+                btnBackgroundColor.textContent = "Background color: gray";
 
                 const btnTimerToggle = document.getElementById("timer_toggle");
-                const currentToggle = localStorage.getItem("timer_toggle");
-                if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
+                btnTimerToggle.textContent = "Display puzzle timer: on";
             }
             break;
         case "reset_password":

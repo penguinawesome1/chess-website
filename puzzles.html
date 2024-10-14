@@ -7,33 +7,33 @@
     <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/5e949a92e17d55230cd1d44f/4ada34dd-8d5c-4c22-b8ca-3325f0bb280f/AINight1x1.png?format=1500w">
     <title>Puzzles</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="puzzles.css">
     <script src="puzzles.js" defer></script>
     <script src="chessboard.js" defer></script>
 </head>
 <body class="dark-mode">
-    <div class="top_bar">
-        <button id="redo" class="btn4">Redo</button>
-        <button id="hint" class="btn4">Hint</button>
-        <button id="next" class="btn4">Next</button>
+    <div class="header">
+        <button id="prev" class="header-btn">Previous</button>
+        <button id="redo" class="header-btn">Redo</button>
+        <button id="hint" class="header-btn">Hint</button>
+        <button id="next" class="header-btn">Next</button>
     </div>
-    <div class="container1">
-        <div class="container2">
-            <div class="nav_menu">
-                <a href="index.html"><button id="chess" class="btn2">Chess</button></a>
-                <a href="puzzles.html"><button id="puzzles" class="btn3">Puzzles</button></a>
-                <a href="friends.html"><button id="friends" class="btn2">Friends</button></a>
-                <a href="account.html"><button id="account" class="btn3">Account</button></a>
-            </div>
+    <div class="horizontal-container">
+        <div class="vertical-container nav-menu">
+            <a href="index.html"><button id="chess" class="nav-btn">Chess</button></a>
+            <a href="puzzles.html"><button id="puzzles" class="nav-btn nav-btn-inverse">Puzzles</button></a>
+            <a href="friends.html"><button id="friends" class="nav-btn">Friends</button></a>
+            <a href="account.html"><button id="account" class="nav-btn nav-btn-inverse">Account</button></a>
         </div>
         <div>
             <br><br>
             <div class="chessboard"></div>
         </div>
-        <div class="container2">
-            <div id="timer" class="container5">0:00</div>
-            <div class="container5">Rating</div>
-            <div class="container5">Streak</div>
+        <div class="vertical-container">
+            <div id="timer" class="info-box">0:00</div>
+            <div class="info-box">Rating</div>
+            <div class="info-box">Streak</div>
         </div>
     </div>
 </body>

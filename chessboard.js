@@ -27,7 +27,7 @@ function createSquares() {
         for (let col = 0; col < 8; col++) {
             const square = document.createElement('div');
             square.classList.add('square');
-            square.classList.add(row % 2 === col % 2 ? 'white_square' : 'black_square');
+            square.classList.add(row % 2 === col % 2 ? 'white-square' : 'black-square');
             square.id = `${letters[col]}${8-row}`;
             chessboard.appendChild(square);
             rowArr.push(square);

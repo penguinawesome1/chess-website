@@ -19,7 +19,7 @@ function updateHistory(pieceType, move, halfTurns) {
         colors = ["4px solid #DAA520", "4px solid darkgreen"],
         box = document.createElement("div");
 
-    box.classList.add("container3");
+    box.classList.add("history-box");
     box.style.backgroundColor = fills[(halfTurns / 2) % colors.length];
     box.style.borderBottom = colors[(halfTurns / 2) % colors.length];
     pieceType = pieceType.toUpperCase();
@@ -63,7 +63,7 @@ let depth = 6;
 document.addEventListener('click', (event) => {
     const target = event.target;
     switch (target.id) {
-        case "game_mode":
+        case "game-mode":
             target.textContent = target.textContent === "Chess" ? "Chess960" : "Chess";
             break;
         case "opponent":
@@ -71,12 +71,12 @@ document.addEventListener('click', (event) => {
             const btnDepth = document.getElementById("depth");
             if (target.textContent === "Player") {
                 target.textContent = "Engine";
-                btnColor.classList.remove("off");
-                btnDepth.classList.remove("off");
+                btnColor.classList.remove("header-btn-off");
+                btnDepth.classList.remove("header-btn-off");
             } else {
                 target.textContent = "Player";
-                btnColor.classList.add("off");
-                btnDepth.classList.add("off");
+                btnColor.classList.add("header-btn-off");
+                btnDepth.classList.add("header-btn-off");
             }
             break;
         case "color":

@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
+}
+
+.dark-mode {
+    background-color: #282828;
+    color: white;
+}
+
+.midnight-mode {
+    background-color: black;
+    color: white;
+}
+
+.header {
+    background-color: black;
+    border: 0;
+    outline: 0;
+    padding: 15px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    height: 60px;
+}
+
+.header-btn {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: #4299e1;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 24px;
+    border-bottom: 4px solid #2b6cb0;
+    font-weight: 700;
+    line-height: 26px;
+    user-select: none;
+    width: 170px;
+    color: white;
+}
+
+.header-btn:hover {
+    background-color: orange;
+    border-bottom: 4px solid darkorange;
+    transform: translateY(-4px);
+}
+
+.header-btn:active {
+    transform: translateY(4px);
+}
+
+.header-btn-off {
+    background-color: gray;
+    border-bottom: 4px solid gray;
+    color: black;
+    pointer-events: none;
+}
+
+.chessboard {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(8, 75px);
+    grid-template-rows: repeat(8, 75px);
+    user-select: none;
+}
+
+.square {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+}
+
+.black-square {
+    background-color: tan;
+}
+
+.white-square {
+    background-color: white;
+}
+
+.horizontal-container {
+    display: flex;
+    margin-left: 40px;
+    margin-top: 4px;
+}
+
+.vertical-container {
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 35px;
+}
+
+.nav-menu {
+    width: 200px;
+    object-fit: contain;
+}
+
+.nav-btn {
+    z-index: 1;
+    position: relative;
+    color: white;
+    border: none;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    outline: 2px solid black;
+    font-weight: 550;
+    padding: 20px;
+    width: 200px;
+    background-color: #2d3058;
+}
+
+.nav-btn::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 100%;
+    right: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #3cefff;
+    transform-origin: center;
+    transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+    transition: transform 0.45s ease-in-out;
+}
+
+.nav-btn:hover {
+    cursor: pointer;
+    color: #161616;
+}
+
+.nav-btn:hover::before {
+    transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
+}
+
+.nav-btn-inverse::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #3cefff;
+    transform-origin: center;
+    transform: translate3d(-50%, 50%, 0) scale3d(0, 0, 0);
+    transition: transform 0.45s ease-in-out;
+}
+
+.nav-btn-inverse:hover::before {
+    transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
+}

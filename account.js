@@ -46,7 +46,7 @@ document.addEventListener('click', (event) => {
             if (file1) {
                 const reader = new FileReader();
                 reader.onload = (event) => {
-                    localStorage.setItem("profile-picture1", event.target.result);
+                    localStorage.setItem("profile_picture1", event.target.result);
                 };
                 reader.readAsDataURL(file1);
             }

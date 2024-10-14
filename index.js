@@ -36,8 +36,8 @@ const username2New = localStorage.getItem("username2");
 if (username1New) username1.textContent = username1New;
 if (username2New) username2.textContent = username2New;
 
-const profilePicture1 = document.getElementById("profile_picture1");
-const profilePicture2 = document.getElementById("profile_picture2");
+const profilePicture1 = document.getElementById("profile-picture1");
+const profilePicture2 = document.getElementById("profile-picture2");
 const profilePicture1New = localStorage.getItem("profile_picture1");
 const profilePicture2New = localStorage.getItem("profile_picture2");
 if (profilePicture1New) {

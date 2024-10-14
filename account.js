@@ -12,7 +12,7 @@ const currentBg = localStorage.getItem("background-color");
 if (currentBg) btnBackgroundColor.textContent = `Background color: ${currentBg.replace("-", " ")}`;
 
 const btnTimerToggle = document.getElementById("timer-toggle");
-const currentToggle = localStorage.getItem("timer-toggle");
+const currentToggle = localStorage.getItem("timer_toggle");
 if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -71,14 +71,14 @@ document.addEventListener('click', (event) => {
             document.body.classList.add(color);
             const backgroundColorBtn = document.getElementById("color-mode");
             backgroundColorBtn.textContent = `Background color: ${color.replace("-", " ")}`;
-            localStorage.setItem("background-color", color);
+            localStorage.setItem("background_color", color);
             break;
         case "timer-toggle":
-            if (localStorage.getItem("timer-toggle") === "off") localStorage.setItem("timer-toggle", "on");
-            else localStorage.setItem("timer-toggle", "off");
+            if (localStorage.getItem("timer_toggle") === "off") localStorage.setItem("timer_toggle", "on");
+            else localStorage.setItem("timer_toggle", "off");
             
             const btnTimerToggle = document.getElementById("timer-toggle");
-            const currentToggle = localStorage.getItem("timer-toggle");
+            const currentToggle = localStorage.getItem("timer_toggle");
             if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
             break;
         case "reset-preferences":

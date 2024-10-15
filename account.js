@@ -1,15 +1,15 @@
-const backgroundColor = localStorage.getItem("background-color");
-if (backgroundColor) {
-    document.body.classList.remove("light-mode", "dark-mode", "midnight-mode");
-    document.body.classList.add(backgroundColor);
-}
-
 const backgroundColors = ["light-mode", "dark-mode", "midnight-mode"];
 let currentColorIndex = 1;
 
-const btnBackgroundColor = document.getElementById("color-mode");
-const currentBg = localStorage.getItem("background-color");
-if (currentBg) btnBackgroundColor.textContent = `Background color: ${currentBg.replace("-", " ")}`;
+const myBackgroundColor = localStorage.getItem("background_color");
+if (myBackgroundColor) {
+    document.body.classList.remove("light-mode", "dark-mode", "midnight-mode");
+    document.body.classList.add(myBackgroundColor);
+    currentColorIndex = backgroundColors.indexOf(myBackgroundColor);
+
+    const btnBackgroundColor = document.getElementById("color-mode");
+    btnBackgroundColor.textContent = `Background color: ${myBackgroundColor.replace("-", " ")}`;
+}
 
 const btnTimerToggle = document.getElementById("timer-toggle");
 const currentToggle = localStorage.getItem("timer_toggle");

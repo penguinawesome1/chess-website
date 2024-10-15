@@ -20,38 +20,32 @@ body {
 }
 
 .header {
-    background-color: black;
-    border: 0;
-    outline: 0;
-    padding: 15px 15px;
-    cursor: pointer;
     display: flex;
     justify-content: center;
-    gap: 10px;
-    height: 60px;
+    gap: 1rem;
+    background-color: black;
+    padding: 1rem;
+    height: 3.5rem;
 }
 
 .header-btn {
-    display: inline-block;
     outline: 0;
     border: 0;
     cursor: pointer;
     background-color: #4299e1;
-    border-radius: 4px;
-    padding: 12px 24px;
-    font-size: 24px;
-    border-bottom: 4px solid #2b6cb0;
+    border-radius: .25rem;
+    border-bottom: .25rem solid #2b6cb0;
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: 26px;
     user-select: none;
-    width: 170px;
+    width: 10rem;
     color: white;
 }
 
 .header-btn:hover {
     background-color: orange;
-    border-bottom: 4px solid darkorange;
-    transform: translateY(-4px);
+    border-bottom: .25rem solid darkorange;
+    transform: translateY(-.25rem);
 }
 
 .header-btn:active {
@@ -60,24 +54,22 @@ body {
 
 .header-btn-off {
     background-color: gray;
-    border-bottom: 4px solid gray;
+    border-bottom: .25rem solid gray;
     color: black;
     pointer-events: none;
 }
 
 .chessboard {
-    width: 600px;
-    height: 600px;
+    width: 32vw;
+    height: 32vw;
     display: grid;
-    grid-template-columns: repeat(8, 75px);
-    grid-template-rows: repeat(8, 75px);
+    grid-template-columns: repeat(8, 4vw);
+    grid-template-rows: repeat(8, 4vw);
     user-select: none;
 }
 
 .square {
-    width: 75px;
-    height: 75px;
-    text-align: center;
+    
 }
 
 .black-square {

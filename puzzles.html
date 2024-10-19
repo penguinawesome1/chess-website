@@ -8,33 +8,33 @@
     <title>Puzzles</title>
 
     <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="puzzles.css">
     <script src="puzzles.js" defer></script>
     <script src="chessboard.js" defer></script>
 </head>
 <body class="dark-mode">
-    <div class="header">
-        <button id="prev" class="header-btn">Previous</button>
-        <button id="redo" class="header-btn">Redo</button>
-        <button id="hint" class="header-btn">Hint</button>
-        <button id="next" class="header-btn">Next</button>
-    </div>
-    <div class="horizontal-container">
-        <div class="vertical-container nav-menu">
-            <a href="index.html"><button id="chess" class="nav-btn">Chess</button></a>
-            <a href="puzzles.html"><button id="puzzles" class="nav-btn nav-btn-inverse">Puzzles</button></a>
-            <a href="friends.html"><button id="friends" class="nav-btn">Friends</button></a>
-            <a href="account.html"><button id="account" class="nav-btn nav-btn-inverse">Account</button></a>
-        </div>
-        <div>
-            <br><br>
-            <div class="chessboard"></div>
-        </div>
-        <div class="vertical-container">
-            <div id="timer" class="info-box">0:00</div>
-            <div class="info-box">Rating</div>
-            <div class="info-box">Streak</div>
-        </div>
+    <header class="rainbow-outline">
+        <ul>
+            <li><button id="prev">Prev</button></li>
+            <li><button id="redo">Redo</button></li>
+            <li><button id="hint">Hint</button></li>
+            <li><button id="next">Next</button></li>
+        </ul>
+    </header>
+    <div class="main-container">
+        <nav>
+            <ul class="vertical-container margin">
+                <li><a href="index.html"><button id="chess">Chess</button></a></li>
+                <li><a href="puzzles.html"><button id="puzzles" class="inverse">Puzzles</button></a></li>
+                <li><a href="friends.html"><button id="friends">Friends</button></a></li>
+                <li><a href="account.html"><button id="account" class="inverse">Account</button></a></li>
+            </ul>
+        </nav>
+        <div class="chessboard margin"></div>
+        <ul class="vertical-container gap margin">
+            <li id="timer" class="info-box rainbow-outline">0:00</li>
+            <li id="rating" class="info-box rainbow-outline">Rating</li>
+            <li id="streak" class="info-box rainbow-outline">Streak</li>
+        </ul>
     </div>
 </body>
 </html>

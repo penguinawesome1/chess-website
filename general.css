@@ -1,3 +1,7 @@
+html {
+    font-size: clamp(.8rem, 1.05vw, 1.05vw);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -19,18 +23,25 @@ body {
     color: white;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+header {
+    height: 4.5rem;
     background-color: black;
-    padding: 1rem;
-    height: 3.5rem;
 }
 
-.header-btn {
-    outline: 0;
-    border: 0;
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 4.5rem;
+    gap: 1rem;
+}
+
+header button {
+    border: none;
     cursor: pointer;
     background-color: #4299e1;
     border-radius: .25rem;
@@ -38,87 +49,77 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     user-select: none;
-    width: 10rem;
+    width: 8.5rem;
+    height: 3.2rem;
     color: white;
 }
 
-.header-btn:hover {
+header button:hover {
     background-color: orange;
     border-bottom: .25rem solid darkorange;
     transform: translateY(-.25rem);
 }
 
-.header-btn:active {
-    transform: translateY(4px);
+header button:active {
+    transform: translateY(.25rem);
 }
 
-.header-btn-off {
+header button.off {
     background-color: gray;
     border-bottom: .25rem solid gray;
     color: black;
     pointer-events: none;
 }
 
-.chessboard {
-    width: 32vw;
-    height: 32vw;
-    display: grid;
-    grid-template-columns: repeat(8, 4vw);
-    grid-template-rows: repeat(8, 4vw);
-    user-select: none;
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.square {
-    
-}
-
-.black-square {
-    background-color: tan;
-}
-
-.white-square {
-    background-color: white;
-}
-
-.horizontal-container {
+.main-container {
     display: flex;
-    margin-left: 40px;
-    margin-top: 4px;
+    margin-left: 5rem;
+    gap: 1rem;
 }
 
 .vertical-container {
+    display: flex;
     flex-direction: column;
-    padding: 20px;
-    padding-top: 35px;
 }
 
-.nav-menu {
-    width: 200px;
-    object-fit: contain;
+.vertical-container.margin,
+.chessboard.margin {
+    margin-top: 4.4rem;
 }
 
-.nav-btn {
+.vertical-container.gap {
+    gap: 1rem;
+}
+
+nav button {
     z-index: 1;
     position: relative;
+    overflow: hidden;
     color: white;
     border: none;
-    overflow: hidden;
     transition: color 0.4s ease-in-out;
-    outline: 2px solid black;
+    outline: .15rem solid black;
     font-weight: 550;
-    padding: 20px;
-    width: 200px;
+    padding: 1.3rem;
+    width: 10rem;
     background-color: #2d3058;
+    font-size: 1rem;
 }
 
-.nav-btn::before {
+nav button::before {
     content: '';
     z-index: -1;
     position: absolute;
     top: 100%;
     right: 100%;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: #3cefff;
     transform-origin: center;
@@ -126,23 +127,23 @@ body {
     transition: transform 0.45s ease-in-out;
 }
 
-.nav-btn:hover {
+nav button:hover {
     cursor: pointer;
     color: #161616;
 }
 
-.nav-btn:hover::before {
+nav button:hover::before {
     transform: translate3d(50%, -50%, 0) scale3d(15, 15, 15);
 }
 
-.nav-btn-inverse::before {
+nav button.inverse::before {
     content: '';
     z-index: -1;
     position: absolute;
     bottom: 100%;
     left: 100%;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background-color: #3cefff;
     transform-origin: center;
@@ -150,6 +151,116 @@ body {
     transition: transform 0.45s ease-in-out;
 }
 
-.nav-btn-inverse:hover::before {
+nav button.inverse:hover::before {
     transform: translate3d(-50%, 50%, 0) scale3d(15, 15, 15);
+}
+
+.chessboard {
+    width: 32rem;
+    height: 32rem;
+    display: grid;
+    grid-template-columns: repeat(8, 4rem);
+    grid-template-rows: repeat(8, 4rem);
+    user-select: none;
+}
+
+.chessboard .square {
+    
+}
+
+.chessboard .black-square {
+    background-color: tan;
+}
+
+.chessboard .white-square {
+    background-color: white;
+}
+
+/* .profile-picture-box {
+    width: 3rem;
+    height: 3rem;
+    background-color: black;
+} */
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.rainbow-outline {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+.rainbow-outline::before,
+.rainbow-outline::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: .1rem;
+    border-radius: .1rem;
+    animation: 3s spin linear infinite;
+}
+
+.rainbow-outline::before {
+    filter: blur(.4rem);
+    opacity: 0.8;
+}
+
+header.rainbow-outline {
+    width: 100vw;
+    height: 4.5rem;
+}
+
+header.rainbow-outline::before,
+header.rainbow-outline::after {
+    padding: .1rem 0 .1rem 0;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* puzzles */
+
+.info-box {
+    background-color: black;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+/* friends */
+
+.friend-box {
+    gap: 1rem;
+    width: 30rem;
+    height: 40rem;
+}
+
+/* .friend-box .item {
+    background-color: red;
+    border-radius: 2rem;
+    columns: 5rem;
+    padding: 1rem;
+} */
+
+.item {
+    background-color: red;
+    border-radius: 2rem;
+    columns: 5rem;
+    padding: 1rem;
 }

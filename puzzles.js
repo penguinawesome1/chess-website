@@ -4,7 +4,7 @@ if (backgroundColor) {
     document.body.classList.add(backgroundColor);
 }
 
-if (localStorage.getItem("timer-toggle") === "off") {
+if (localStorage.getItem("timer_toggle") === "off") {
     const timer = document.getElementById("timer");
     timer.parentNode.removeChild(timer);
 }

@@ -1,31 +1,34 @@
-.reset-btn {
-    background-color: red;
-    color: black;
-    border-bottom: 4px solid darkred;
-    width: fit-content;
+button#reset {
+    border: none;
     cursor: pointer;
-    border-radius: 4px;
-    padding: 12px 24px;
-    font-size: 24px;
+    background-color: red;
+    border-radius: .25rem;
+    border-bottom: .25rem solid darkred;
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: 26px;
     user-select: none;
+    width: 2rem;
+    height: 2rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.reset-btn:hover {
+button#reset:hover {
     background-color: white;
-    border-bottom: 4px solid lightgray;
-    transform: translateY(-4px);
+    border-bottom: .25rem solid lightgray;
+    transform: translateY(-.25rem);
 }
 
-.reset-btn:active {
-    transform: translateY(4px);
+button#reset:active {
+    transform: translateY(.25rem);
 }
 
 .history {
-    width: 200px;
-    height: 550px;
-    background-color: lightgray;
+    width: 10rem;
+    height: 26rem;
+    background-color: black;
     overflow-y: scroll;
 }
 
@@ -33,31 +36,28 @@
     display: none;
 }
 
+.history .item {
+    font-size: 1.5rem;
+    padding: .35rem;
+    border: lightgray;
+    border-radius: .5rem;
+    font-weight: bold;
+    margin: .25rem;
+    color: black;
+    background-color: green;
+}
+
 .banner {
-    padding: 5px;
+    padding: .7rem;
     font-weight: 850;
-    font-size: 25px;
+    font-size: 1.5rem;
     display: flex;
-    justify-content: left;
     align-items: center;
+    gap: 1rem;
 }
 
 .profile-picture-box {
-    width: 50px;
-    height: 50px;
-    background-color: gray;
-    border: 2px solid black;
-    box-shadow: 3px 3px 10px lightgray;
-    margin: 0 30px 0 30px;
-}
-
-.history-box {
-    font-size: 25px;
-    padding: 8px;
-    border: lightgray;
-    border-radius: 10px;
-    font-weight: bold;
-    margin: 5px;
-    color: black;
-    background-color: green;
+    width: 3rem;
+    height: 3rem;
+    background-color: black;
 }

@@ -15,11 +15,11 @@ function updateHistory(pieceType, move, halfTurns) {
         return;
     }
 
-    const fills = ["#FFD700", "#259625"],
-        colors = ["4px solid #DAA520", "4px solid darkgreen"],
+    const fills = ["#FFD700", "#40B040"],
+        colors = [".25rem solid #DAA520", ".25rem solid darkgreen"],
         box = document.createElement("div");
 
-    box.classList.add("history-box");
+    box.classList.add("item");
     box.style.backgroundColor = fills[(halfTurns / 2) % colors.length];
     box.style.borderBottom = colors[(halfTurns / 2) % colors.length];
     pieceType = pieceType.toUpperCase();
@@ -71,12 +71,12 @@ document.addEventListener('click', (event) => {
             const btnDepth = document.getElementById("depth");
             if (target.textContent === "Player") {
                 target.textContent = "Engine";
-                btnColor.classList.remove("header-btn-off");
-                btnDepth.classList.remove("header-btn-off");
+                btnColor.classList.remove("off");
+                btnDepth.classList.remove("off");
             } else {
                 target.textContent = "Player";
-                btnColor.classList.add("header-btn-off");
-                btnDepth.classList.add("header-btn-off");
+                btnColor.classList.add("off");
+                btnDepth.classList.add("off");
             }
             break;
         case "color":

@@ -11,62 +11,85 @@
     <script src="account.js" defer></script>
 </head>
 <body class="dark-mode">
-    <div class="header"></div>
-    <div class="horizontal-container">
-        <div class="vertical-container nav-menu">
-            <a href="index.html"><button id="chess" class="nav-btn">Chess</button></a>
-            <a href="puzzles.html"><button id="puzzles" class="nav-btn nav-btn-inverse">Puzzles</button></a>
-            <a href="friends.html"><button id="friends" class="nav-btn">Friends</button></a>
-            <a href="account.html"><button id="account" class="nav-btn nav-btn-inverse">Account</button></a>
+    <header class="header rainbow-outline"></header>
+    <div class="main-container">
+        <nav>
+            <ul class="vertical-container margin">
+                <li><a href="index.html"><button id="chess">Chess</button></a></li>
+                <li><a href="puzzles.html"><button id="puzzles" class="inverse">Puzzles</button></a></li>
+                <li><a href="friends.html"><button id="friends">Friends</button></a></li>
+                <li><a href="account.html"><button id="account" class="inverse">Account</button></a></li>
+            </ul>
+        </nav>
+        <div class="vertical-container">
+            <ul>
+                <li class="key-wrapper" style="--order: 1">
+                    <div class="key" id="change-username-player1">
+                        Change name
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 2">
+                    <div class="key" id="change-profile-picture-player1">
+                        Change profile picture
+                        <input type="file" id="image-input1">
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 3">
+                    <div class="key" id="change-username-player2">
+                        Change player 2 name
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 4">
+                    <div class="key" id="change-profile-picture-player2">
+                        Change player 2 profile picture
+                        <input type="file" id="image-input2">
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 5">
+                    <div class="key" id="color-mode">
+                        Background color: dark mode
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 6">
+                    <div class="key" id="timer-toggle">
+                        Display puzzle timer: on
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 7">
+                    <div class="key" id="reset-preferences">
+                        Reset preferences
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 8">
+                    <div class="key" id="reset-password">
+                        Reset password
+                    </div>
+                </li>
+                <li class="key-wrapper" style="--order: 9">
+                    <div class="key" id="delete-account">
+                        Delete account
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="keyboard">
-            <div class="key-wrapper" style="--order: 1"><div class="key" id="change-username-player1">
-                Change name
-            </div></div>
-            <div class="key-wrapper" style="--order: 2"><div class="key" id="change-profile-picture-player1">
-                Change profile picture
-                <input type="file" id="image-input1" style="margin-left: 100px;">
-            </div></div>
-            <div class="key-wrapper" style="--order: 3"><div class="key" id="change-username-player2">
-                Change player 2 name
-            </div></div>
-            <div class="key-wrapper" style="--order: 4"><div class="key" id="change-profile-picture-player2">
-                Change player 2 profile picture
-                <input type="file" id="image-input2" style="margin-left: 100px;">
-            </div></div>
-            <div class="key-wrapper" style="--order: 5"><div class="key" id="color-mode">
-                Background color: dark mode
-            </div></div>
-            <div class="key-wrapper" style="--order: 6"><div class="key" id="timer-toggle">
-                Display puzzle timer: on
-            </div></div>
-            <div class="key-wrapper" style="--order: 7"><div class="key" id="reset-preferences">
-                Reset preferences
-            </div></div>
-            <div class="key-wrapper" style="--order: 8"><div class="key" id="reset-password">
-                Reset password
-            </div></div>
-            <div class="key-wrapper" style="--order: 9"><div class="key" id="delete-account">
-                Delete account
-            </div></div>
-        </div>
-        <div class="info-box">
-            <div id="capturesWhite" class="banner">
+        <div class="vertical-container margin">
+            <div class="info-box rainbow-outline">
                 <div id="profile-picture1" class="profile-picture-box"></div>
                 <div id="username1">Player1</div>
+                <ul>
+                    <li><strong>Online</strong></li>
+                    <li>Highest Rank: _</li>
+                    <li>Current Rank: _</li>
+                    <li>Highest Streak: _</li>
+                    <br>
+                    <li><strong>Puzzle</strong></li>
+                    <li>Highest Rank: _</li>
+                    <li>Current Rank: _</li>
+                    <li>Highest Streak: _</li>
+                    <br>
+                </ul>
+                <button id="sign-in">Sign In</button>
             </div>
-            <ul>
-                <strong>Online</strong>
-                <li>Highest Rank: _</li>
-                <li>Current Rank: _</li>
-                <li>Highest Streak: _</li>
-                <br>
-                <strong>Puzzle</strong>
-                <li>Highest Rank: _</li>
-                <li>Current Rank: _</li>
-                <li>Highest Streak: _</li>
-            </ul>
-            <button id="sign-in" class="sign-in-btn">Sign In</button>
         </div>
     </div>
 </body>

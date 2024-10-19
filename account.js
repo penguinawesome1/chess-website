@@ -11,6 +11,18 @@ if (myBackgroundColor) {
     btnBackgroundColor.textContent = `Background color: ${myBackgroundColor.replace("-", " ")}`;
 }
 
+const profilePicture1 = document.getElementById("profile-picture1");
+const profilePicture1New = localStorage.getItem("profile_picture1");
+if (profilePicture1New) {
+    const image1 = document.createElement("img");
+    image1.src = profilePicture1New;
+    image1.style.width = "100%";
+    image1.style.height = "100%";
+    image1.style.objectFit = "cover";
+    image1.style.objectPosition = "top center";
+    profilePicture1.appendChild(image1);
+}
+
 const btnTimerToggle = document.getElementById("timer-toggle");
 const currentToggle = localStorage.getItem("timer_toggle");
 if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
@@ -27,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const allAnimatedElements = document.querySelectorAll('.key-wrapper');
     allAnimatedElements.forEach((element) => observer.observe(element));
-}); 
+});
 
 document.addEventListener('click', (event) => {
     const target = event.target;

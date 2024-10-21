@@ -5,9 +5,9 @@ if (backgroundColor) {
 }
 
 const rainbowToggle = localStorage.getItem("rainbow_toggle");
-if (rainbowToggle !== "on") {
+if (rainbowToggle === "on") {
     const myRainbowOutlines = document.querySelectorAll(".rainbow-outline");
     myRainbowOutlines.forEach(element => {
-        element.classList.remove("rainbow-outline");
+        element.classList.toggle("rainbow-outline");
     });
 }

@@ -1,5 +1,5 @@
 html {
-    font-size: clamp(.8rem, 1.05vw, 1.05vw);
+    font-size: clamp(.8rem, 1.04vw, 1.04vw);
 }
 
 body {
@@ -50,7 +50,7 @@ header button {
     font-weight: 700;
     user-select: none;
     width: 8.5rem;
-    height: 3.2rem;
+    height: 3rem;
     color: white;
 }
 
@@ -106,7 +106,7 @@ nav button {
     transition: color 0.4s ease-in-out;
     outline: .15rem solid black;
     font-weight: 550;
-    padding: 1.3rem;
+    padding: 1.2rem;
     width: 10rem;
     background-color: #2d3058;
     font-size: 1rem;
@@ -176,12 +176,6 @@ nav button.inverse:hover::before {
     background-color: white;
 }
 
-/* .profile-picture-box {
-    width: 3rem;
-    height: 3rem;
-    background-color: black;
-} */
-
 @property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -189,8 +183,6 @@ nav button.inverse:hover::before {
 }
 
 .rainbow-outline {
-    width: fit-content;
-    height: fit-content;
     position: relative;
 }
 
@@ -200,14 +192,14 @@ nav button.inverse:hover::before {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
     z-index: -1;
     padding: .1rem;
     border-radius: .1rem;
-    animation: 3s spin linear infinite;
+    animation: 10s spin linear infinite;
 }
 
 .rainbow-outline::before {
@@ -223,6 +215,11 @@ header.rainbow-outline {
 header.rainbow-outline::before,
 header.rainbow-outline::after {
     padding: .1rem 0 .1rem 0;
+}
+
+.hidden.rainbow-outline::before,
+.hidden.rainbow-outline::after {
+    visibility: hidden; !important
 }
 
 @keyframes spin {

@@ -30,6 +30,7 @@ button#reset:active {
     height: 26rem;
     background-color: black;
     overflow-y: scroll;
+    /* position: relative; */
 }
 
 .history::-webkit-scrollbar {

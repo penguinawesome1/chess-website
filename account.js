@@ -1,10 +1,10 @@
 const backgroundColors = ["light-mode", "dark-mode", "midnight-mode"];
 let currentColorIndex = 1;
 
-function removeRainbowOutlines() {
+function swapRainbowOutlines() {
     const myRainbowOutlines = document.querySelectorAll(".rainbow-outline");
     myRainbowOutlines.forEach(element => {
-        element.classList.remove("rainbow-outline");
+        element.classList.toggle("hidden");
     });
 }
 
@@ -114,12 +114,7 @@ document.addEventListener('click', (event) => {
             if (currentToggleRainbow) {
                 const btnRainbowToggle = document.getElementById("rainbow-toggle");
                 btnRainbowToggle.textContent = `Display rainbow borders: ${currentToggleRainbow}`;
-
-                if (currentToggleRainbow === "off") {
-                    removeRainbowOutlines();
-                } else {
-                    location.reload();
-                }
+                swapRainbowOutlines();
             }
             break;
         case "timer-toggle":

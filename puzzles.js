@@ -4,6 +4,14 @@ if (backgroundColor) {
     document.body.classList.add(backgroundColor);
 }
 
+const rainbowToggle = localStorage.getItem("rainbow_toggle");
+if (rainbowToggle !== "on") {
+    const myRainbowOutlines = document.querySelectorAll(".rainbow-outline");
+    myRainbowOutlines.forEach(element => {
+        element.classList.remove("rainbow-outline");
+    });
+}
+
 if (localStorage.getItem("timer_toggle") === "off") {
     const timer = document.getElementById("timer");
     timer.parentNode.removeChild(timer);

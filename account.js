@@ -1,6 +1,14 @@
 const backgroundColors = ["light-mode", "dark-mode", "midnight-mode"];
 let currentColorIndex = 1;
 
+function removeRainbowOutlines() {
+    const myRainbowOutlines = document.querySelectorAll(".rainbow-outline");
+    myRainbowOutlines.forEach(element => {
+        element.classList.remove("rainbow-outline");
+    });
+}
+
+// set background color based on local storage
 const myBackgroundColor = localStorage.getItem("background_color");
 if (myBackgroundColor) {
     document.body.classList.remove("light-mode", "dark-mode", "midnight-mode");
@@ -11,6 +19,16 @@ if (myBackgroundColor) {
     btnBackgroundColor.textContent = `Background color: ${myBackgroundColor.replace("-", " ")}`;
 }
 
+// set rainbow outlines based on local storage
+const rainbowToggle = localStorage.getItem("rainbow_toggle");
+if (rainbowToggle === "on") {
+    const btnRainbowToggle = document.getElementById("rainbow-toggle");
+    btnRainbowToggle.textContent = "Display rainbow borders: on";
+} else {
+    removeRainbowOutlines();
+}
+
+// set profile picture based on local storage
 const profilePicture1 = document.getElementById("profile-picture1");
 const profilePicture1New = localStorage.getItem("profile_picture1");
 if (profilePicture1New) {
@@ -23,9 +41,12 @@ if (profilePicture1New) {
     profilePicture1.appendChild(image1);
 }
 
-const btnTimerToggle = document.getElementById("timer-toggle");
+// set timer button display based on local storage
 const currentToggle = localStorage.getItem("timer_toggle");
-if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
+if (currentToggle) {
+    const btnTimerToggle = document.getElementById("timer-toggle");
+    btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(entries => {
@@ -37,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             entry.target.classList.remove("in-view");
         });
     });
-    const allAnimatedElements = document.querySelectorAll('.key-wrapper');
+    const allAnimatedElements = document.querySelectorAll(".key-wrapper");
     allAnimatedElements.forEach((element) => observer.observe(element));
 });
 
@@ -85,26 +106,51 @@ document.addEventListener('click', (event) => {
             backgroundColorBtn.textContent = `Background color: ${color.replace("-", " ")}`;
             localStorage.setItem("background_color", color);
             break;
+        case "rainbow-toggle":
+            if (localStorage.getItem("rainbow_toggle") === "on") localStorage.setItem("rainbow_toggle", "off");
+            else localStorage.setItem("rainbow_toggle", "on");
+            
+            const currentToggleRainbow = localStorage.getItem("rainbow_toggle");
+            if (currentToggleRainbow) {
+                const btnRainbowToggle = document.getElementById("rainbow-toggle");
+                btnRainbowToggle.textContent = `Display rainbow borders: ${currentToggleRainbow}`;
+
+                if (currentToggleRainbow === "off") {
+                    removeRainbowOutlines();
+                } else {
+                    location.reload();
+                }
+            }
+            break;
         case "timer-toggle":
             if (localStorage.getItem("timer_toggle") === "off") localStorage.setItem("timer_toggle", "on");
             else localStorage.setItem("timer_toggle", "off");
             
-            const btnTimerToggle = document.getElementById("timer-toggle");
-            const currentToggle = localStorage.getItem("timer_toggle");
-            if (currentToggle) btnTimerToggle.textContent = `Display puzzle timer: ${currentToggle}`;
+            const currentToggleTimer = localStorage.getItem("timer_toggle");
+            if (currentToggleTimer) {
+                const btnTimerToggle = document.getElementById("timer-toggle");
+                btnTimerToggle.textContent = `Display puzzle timer: ${currentToggleTimer}`;
+            }
             break;
         case "reset-preferences":
             const confirmed1 = confirm("Are you sure you want to reset preferences?");
             if (confirmed1) {
                 localStorage.clear();
+
+                // reset background color
                 document.body.classList.remove("light-mode", "midnight-mode");
                 document.body.classList.add("dark-mode");
-                
+
+                // reset button text
                 const btnBackgroundColor = document.getElementById("color-mode");
                 btnBackgroundColor.textContent = "Background color: dark mode";
-
                 const btnTimerToggle = document.getElementById("timer-toggle");
                 btnTimerToggle.textContent = "Display puzzle timer: on";
+                const btnRainbowToggle = document.getElementById("rainbow-toggle");
+                btnRainbowToggle.textContent = "Display rainbow borders: off";
+
+                // reset rainbow outlines
+                removeRainbowOutlines();
             }
             break;
         case "reset-password":

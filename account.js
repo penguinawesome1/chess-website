@@ -24,8 +24,7 @@ const rainbowToggle = localStorage.getItem("rainbow_toggle");
 if (rainbowToggle === "on") {
     const btnRainbowToggle = document.getElementById("rainbow-toggle");
     btnRainbowToggle.textContent = "Display rainbow borders: on";
-} else {
-    removeRainbowOutlines();
+    swapRainbowOutlines();
 }
 
 // set profile picture based on local storage

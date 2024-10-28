@@ -89,7 +89,8 @@ ul {
 }
 
 .vertical-container.margin,
-.chessboard.margin {
+.chessboard.margin,
+.friend-boxes.margin {
     margin-top: 4.4rem;
 }
 
@@ -243,34 +244,22 @@ header.rainbow-outline::after {
 /* friends */
 
 .friend-boxes {
-    margin-top: 4.4rem;
+    display: grid;
+    color: white;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-    /* width: 75rem; */
-    columns: 16rem;
+    justify-content: center;
+    width: 75%;
 }
 
 .friend-boxes .box {
     padding: 2rem;
-    background-color: pink;
-    margin-bottom: 1rem;
-
-.friend-boxes .box:hover {
-    cursor: pointer;
-    animation: jelly 0.5s;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: gray;
+    text-align: center;
 }
 
-@keyframes jelly {
-    0%,
-    100% {
-        transform: scale(1, 1);
-    }
-    25% {
-        transform: scale(0.9, 1.1);
-    }
-    50% {
-        transform: scale(1.1, 0.9);
-    }
-    75% {
-        transform: scale(0.95, 1.05);
-    }
+.friend-boxes .box .username {
+    weight: 700;
 }

@@ -8,6 +8,6 @@ const rainbowToggle = localStorage.getItem("rainbow_toggle");
 if (rainbowToggle === "on") {
     const myRainbowOutlines = document.querySelectorAll(".rainbow-outline");
     myRainbowOutlines.forEach(element => {
-        element.classList.toggle("rainbow-outline");
+        element.classList.toggle("hidden");
     });
 }
